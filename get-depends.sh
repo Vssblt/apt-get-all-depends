@@ -1,5 +1,7 @@
 #!/bin/bash
 
+search=depends
+
 declare -A map
 
 function isExist()
@@ -16,7 +18,7 @@ function isExist()
 logfile=./log
 function getDepends()
 {
-	ret=`apt-cache depends $1 | grep 依赖 | cut -d : -f2 | tr -d "<>"`
+	ret=`apt-cache depends $1 | grep $search | cut -d : -f2 | tr -d "<>"`
 	for line in $ret
 	do
 		if [ "0" == `isExist $line` ]; then
