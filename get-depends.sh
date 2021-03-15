@@ -28,8 +28,6 @@ function getDepends()
 }
 
 
-getDepends gcc
-getDepends build-essential
-getDepends make
+getDepends $1
 
 
